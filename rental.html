@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steel Shed Rental | Hell Hole Inc.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Open Sans', sans-serif; line-height: 1.6; color: #333; }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 700; }
+        
+        /* Header */
+        header {
+            background: #1A3C2A;
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo-icon { width: 50px; height: 50px; border-radius: 50%; overflow: hidden; }
+        .logo-icon img { width: 100%; height: 100%; object-fit: cover; }
+        .logo-text { color: white; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.4rem; }
+        .logo-text span { color: #D4A84B; }
+        nav ul { display: flex; list-style: none; gap: 2rem; }
+        nav a { color: #fff; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: color 0.3s; }
+        nav a:hover { color: #D4A84B; }
+        .nav-cta { background: #D4A84B; padding: 10px 24px; border-radius: 25px; }
+        .nav-cta:hover { background: #4A7C59; color: white !important; }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, rgba(26, 60, 42, 0.95), rgba(74, 124, 89, 0.9));
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            color: white;
+        }
+        .page-header h1 { font-size: 3rem; margin-bottom: 1rem; }
+        .page-header p { font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+
+        /* Content */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        
+        .rental-intro {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        .rental-intro h2 { font-size: 2rem; color: #1A3C2A; margin-bottom: 1rem; }
+        .rental-intro p { color: #666; max-width: 700px; margin: 0 auto 2rem; }
+
+        /* Pricing Cards */
+        .pricing-section { padding: 4rem 2rem; background: #f8f9fa; }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .pricing-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        .pricing-card:hover { transform: translateY(-5px); }
+        .pricing-card.featured {
+            background: linear-gradient(135deg, #1A3C2A, #4A7C59);
+            color: white;
+            transform: scale(1.05);
+        }
+        .pricing-card h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+        .pricing-card .price {
+            font-size: 3rem;
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+            margin: 1rem 0;
+            color: #D4A84B;
+        }
+        .pricing-card.featured .price { color: #D4A84B; }
+        .pricing-card .price span { font-size: 1rem; font-weight: 400; opacity: 0.8; }
+        .pricing-card ul { list-style: none; margin: 1.5rem 0; text-align: left; }
+        .pricing-card li { padding: 0.5rem 0; border-bottom: 1px solid rgba(0,0,0,0.1); display: flex; align-items: center; gap: 10px; }
+        .pricing-card.featured li { border-color: rgba(255,255,255,0.2); }
+        .pricing-card li:last-child { border: none; }
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+        .btn-primary { background: #D4A84B; color: white; }
+        .btn-primary:hover { background: #4A7C59; }
+        .pricing-card.featured .btn { background: white; color: #1A3C2A; }
+        .pricing-card.featured .btn:hover { background: #D4A84B; color: white; }
+
+        /* Amenities */
+        .amenities { padding: 4rem 2rem; }
+        .amenities h2 { text-align: center; font-size: 2rem; color: #1A3C2A; margin-bottom: 2rem; }
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .amenity {
+            text-align: center;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 15px;
+        }
+        .amenity-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+        .amenity h4 { color: #1A3C2A; font-size: 0.95rem; }
+
+        /* Booking Section */
+        .booking-section {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #1A3C2A, #4A7C59);
+            text-align: center;
+            color: white;
+        }
+        .booking-section h2 { font-size: 2rem; margin-bottom: 1rem; }
+        .booking-section p { opacity: 0.9; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .booking-placeholder {
+            background: rgba(255,255,255,0.1);
+            border: 2px dashed rgba(255,255,255,0.3);
+            border-radius: 20px;
+            padding: 4rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .booking-placeholder p { font-size: 1.1rem; }
+
+        /* Footer */
+        footer {
+            background: #1A3C2A;
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        footer p { opacity: 0.7; }
+        footer a { color: #D4A84B; text-decoration: none; }
+
+        @media (max-width: 968px) {
+            .pricing-grid, .amenities-grid { grid-template-columns: 1fr; }
+            .pricing-card.featured { transform: none; }
+            nav ul { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <a href="index.html" class="logo">
+            <div class="logo-icon"><img src="images/hero-bg.jpg" alt="Hell Hole Logo"></div>
+            <div class="logo-text">HELL HOLE <span>INC.</span></div>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="rental.html">Steel Shed Rental</a></li>
+                <li><a href="#donate">Donate</a></li>
+                <li><a href="#book" class="nav-cta">Book Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Steel Shed Rental</h1>
+        <p>Host your next event at our spacious community facility in the heart of Jamestown</p>
+    </section>
+
+    <!-- Intro -->
+    <section class="rental-intro">
+        <div class="container">
+            <h2>Your Event, Our Space</h2>
+            <p>The Steel Shed is a versatile venue perfect for private parties, corporate events, weddings, reunions, and community gatherings. Located at the Hell Hole Inc. grounds, our facility offers ample space and amenities to make your event memorable.</p>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing-section">
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Setup Day</h3>
+                <div class="price">$200<span>/day</span></div>
+                <ul>
+                    <li>✓ Up to 6 hours access</li>
+                    <li>✓ Day before your event</li>
+                    <li>✓ Setup & decoration time</li>
+                    <li>✓ Add-on to main rental</li>
+                </ul>
+                <a href="#book" class="btn btn-primary">Add to Booking</a>
+            </div>
+            
+            <div class="pricing-card featured">
+                <h3>Standard Rental</h3>
+                <div class="price">$400<span>/day</span></div>
+                <ul>
+                    <li>✓ 12-hour rental period</li>
+                    <li>✓ 96 plastic + 75 banquet chairs</li>
+                    <li>✓ 18 rectangle + 7 round tables</li>
+                    <li>✓ Full kitchen access</li>
+                    <li>✓ Non-admission events</li>
+                </ul>
+                <a href="#book" class="btn btn-primary">Book Now</a>
+            </div>
+            
+            <div class="pricing-card">
+                <h3>Admission Events</h3>
+                <div class="price">$600<span>/day</span></div>
+                <ul>
+                    <li>✓ 12-hour rental period</li>
+                    <li>✓ All equipment included</li>
+                    <li>✓ Events charging entry fee</li>
+                    <li>✓ Security required 150+ guests</li>
+                </ul>
+                <a href="#book" class="btn btn-primary">Book Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Amenities -->
+    <section class="amenities">
+        <h2>What's Included</h2>
+        <div class="amenities-grid">
+            <div class="amenity">
+                <div class="amenity-icon">🪑</div>
+                <h4>171 Chairs</h4>
+            </div>
+            <div class="amenity">
+                <div class="amenity-icon">🍽️</div>
+                <h4>25 Tables</h4>
+            </div>
+            <div class="amenity">
+                <div class="amenity-icon">🍳</div>
+                <h4>Full Kitchen</h4>
+            </div>
+            <div class="amenity">
+                <div class="amenity-icon">🚻</div>
+                <h4>Restrooms</h4>
+            </div>
+            <div class="amenity">
+                <div class="amenity-icon">🅿️</div>
+                <h4>Parking</h4>
+            </div>
+            <div class="amenity">
+                <div class="amenity-icon">🔌</div>
+                <h4>Power Access</h4>
+            </div>
+            <div class="amenity">
+                <div class="amenity-icon">🌳</div>
+                <h4>Outdoor Space</h4>
+            </div>
+            <div class="amenity">
+                <div class="amenity-icon">♿</div>
+                <h4>Accessible</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking -->
+    <section class="booking-section" id="book">
+        <h2>Book Your Event</h2>
+        <p>Select your date below to check availability and reserve the Steel Shed for your event.</p>
+        <div class="booking-placeholder">
+            <p>📅 Cal.com booking widget will be embedded here</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">Coming soon — contact us directly in the meantime</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Hell Hole Inc. All rights reserved. | <a href="mailto:info@hellholeswampfest.com">info@hellholeswampfest.com</a></p>
+    </footer>
+</body>
+</html>

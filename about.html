@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Hell Hole Inc.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Open Sans', sans-serif; line-height: 1.6; color: #333; }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 700; }
+        
+        /* Header */
+        header {
+            background: #1A3C2A;
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo-icon { width: 50px; height: 50px; border-radius: 50%; overflow: hidden; }
+        .logo-icon img { width: 100%; height: 100%; object-fit: cover; }
+        .logo-text { color: white; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.4rem; }
+        .logo-text span { color: #D4A84B; }
+        nav ul { display: flex; list-style: none; gap: 2rem; }
+        nav a { color: #fff; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: color 0.3s; }
+        nav a:hover { color: #D4A84B; }
+        .nav-cta { background: #D4A84B; padding: 10px 24px; border-radius: 25px; }
+        .nav-cta:hover { background: #4A7C59; color: white !important; }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, rgba(26, 60, 42, 0.95), rgba(74, 124, 89, 0.9));
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            color: white;
+        }
+        .page-header h1 { font-size: 3rem; margin-bottom: 1rem; }
+        .page-header p { font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+
+        /* Content */
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
+
+        /* Vision & Mission */
+        .vision-mission {
+            padding: 4rem 2rem;
+            background: #f8f9fa;
+        }
+        .vm-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .vm-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+        .vm-card h2 {
+            color: #D4A84B;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+        .vm-card p {
+            color: #555;
+            font-style: italic;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* History */
+        .history {
+            padding: 4rem 2rem;
+        }
+        .history h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: #1A3C2A;
+            margin-bottom: 2rem;
+        }
+        .history-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .history-content p {
+            color: #555;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        /* Stats */
+        .stats {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #1A3C2A, #4A7C59);
+            color: white;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .stat-item h3 {
+            font-size: 3rem;
+            color: #D4A84B;
+            margin-bottom: 0.5rem;
+        }
+        .stat-item p { opacity: 0.9; }
+
+        /* Events List */
+        .events-overview {
+            padding: 4rem 2rem;
+            background: #f8f9fa;
+        }
+        .events-overview h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: #1A3C2A;
+            margin-bottom: 1rem;
+        }
+        .events-overview > p {
+            text-align: center;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        .events-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .event-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        .event-icon {
+            font-size: 2rem;
+            width: 60px;
+            height: 60px;
+            background: #f8f9fa;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .event-info h4 { color: #1A3C2A; margin-bottom: 0.25rem; }
+        .event-info p { color: #666; font-size: 0.9rem; }
+
+        /* Contact */
+        .contact {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        .contact h2 {
+            font-size: 2rem;
+            color: #1A3C2A;
+            margin-bottom: 1rem;
+        }
+        .contact p { color: #666; margin-bottom: 0.5rem; }
+        .contact a { color: #D4A84B; text-decoration: none; font-weight: 600; }
+        .contact a:hover { text-decoration: underline; }
+        .social-links {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: #1A3C2A;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            transition: background 0.3s;
+        }
+        .social-links a:hover { background: #D4A84B; }
+
+        /* Footer */
+        footer {
+            background: #1A3C2A;
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        footer p { opacity: 0.7; }
+        footer a { color: #D4A84B; text-decoration: none; }
+
+        @media (max-width: 968px) {
+            .vm-grid, .stats-grid, .events-list { grid-template-columns: 1fr; }
+            nav ul { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <a href="index.html" class="logo">
+            <div class="logo-icon"><img src="images/hero-bg.jpg" alt="Hell Hole Logo"></div>
+            <div class="logo-text">HELL HOLE <span>INC.</span></div>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="rental.html">Steel Shed Rental</a></li>
+                <li><a href="#donate">Donate</a></li>
+                <li><a href="rental.html#book" class="nav-cta">Book Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>About Hell Hole Inc.</h1>
+        <p>Empowering youth and fostering community fellowship in Jamestown since 1971</p>
+    </section>
+
+    <!-- Vision & Mission -->
+    <section class="vision-mission">
+        <div class="vm-grid">
+            <div class="vm-card">
+                <h2>Our Vision</h2>
+                <p>"Empowering youth of all ages to fulfill their dreams and ambitions through unified efforts that create endless possibilities and opportunities."</p>
+            </div>
+            <div class="vm-card">
+                <h2>Our Mission</h2>
+                <p>"Our mission is to promote charitable events year-round, nurturing community fellowship and growth within the greater Jamestown area. Through these events, we strive to provide for those less fortunate in our community, fostering a spirit of compassion, unity, and support."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- History -->
+    <section class="history">
+        <h2>Our Story</h2>
+        <div class="history-content">
+            <p>The Hell Hole Swamp Festival and Hell Hole, Inc. exemplify the spirit of community, dedication, and generosity. Founded on the vision of fostering togetherness, these events have become cherished traditions in Jamestown, South Carolina.</p>
+            <p>Cecil Guerry's initial vision has not only endured but has flourished, thanks to the commitment of volunteers and the support of the Town of Jamestown. The festival's unique attractions, such as the beauty pageants, the children's tobacco spitting contest, and the Hell Hole Gator Trot 10K race, have added character to the event, making it a true representation of the local culture.</p>
+            <p>By creating an inclusive space where people from diverse backgrounds can come together, socialize, and enjoy an array of activities, these events have not only provided entertainment but also strengthened the bonds of community.</p>
+            <p>Hell Hole, Inc.'s expansion of community involvement is commendable. By organizing events like the Oyster Roast and supporting initiatives like the Back to School Bash and Halloween Munster Mash, they have gone above and beyond in their efforts to give back to the community. Offering these events free of charge demonstrates a commitment to inclusivity, ensuring that everyone, regardless of their financial circumstances, can participate and enjoy these community gatherings.</p>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>55</h3>
+                <p>Years Strong</p>
+            </div>
+            <div class="stat-item">
+                <h3>10K+</h3>
+                <p>Annual Visitors</p>
+            </div>
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>Volunteer Run</p>
+            </div>
+            <div class="stat-item">
+                <h3>501(c)(3)</h3>
+                <p>Nonprofit Status</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Overview -->
+    <section class="events-overview">
+        <h2>Our Annual Events</h2>
+        <p>Throughout the year, we host events that bring our community together</p>
+        <div class="events-list">
+            <div class="event-item">
+                <div class="event-icon">🎪</div>
+                <div class="event-info">
+                    <h4>Hell Hole Swamp Festival</h4>
+                    <p>First weekend of May • Free admission</p>
+                </div>
+            </div>
+            <div class="event-item">
+                <div class="event-icon">🦪</div>
+                <div class="event-info">
+                    <h4>Annual Oyster Roast</h4>
+                    <p>February • All-you-can-eat oysters</p>
+                </div>
+            </div>
+            <div class="event-item">
+                <div class="event-icon">📚</div>
+                <div class="event-info">
+                    <h4>Back to School Bash</h4>
+                    <p>August • Free school supplies</p>
+                </div>
+            </div>
+            <div class="event-item">
+                <div class="event-icon">🎃</div>
+                <div class="event-info">
+                    <h4>Munster Mash</h4>
+                    <p>October • Halloween fun for all ages</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact">
+        <h2>Get In Touch</h2>
+        <p>📍 Jamestown, South Carolina</p>
+        <p>📧 <a href="mailto:info@hellholeswampfest.com">info@hellholeswampfest.com</a></p>
+        <div class="social-links">
+            <a href="https://www.facebook.com/HellHoleSwampFestival" target="_blank">f</a>
+            <a href="https://www.instagram.com/hellholeinc/" target="_blank">📷</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Hell Hole Inc. All rights reserved. | <a href="mailto:info@hellholeswampfest.com">info@hellholeswampfest.com</a></p>
+    </footer>
+</body>
+</html>
