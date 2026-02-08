@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hell Hole Swamp Festival - WordPress Mockup</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        /* Header */
+        header {
+            background: #1A3C2A;
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #D4A84B, #4A7C59);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        
+        .logo-text {
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.4rem;
+        }
+        
+        .logo-text span {
+            color: #D4A84B;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #D4A84B;
+        }
+        
+        .nav-cta {
+            background: #D4A84B;
+            padding: 10px 24px;
+            border-radius: 25px;
+        }
+        
+        .nav-cta:hover {
+            background: #4A7C59;
+            color: white !important;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(26, 60, 42, 0.9), rgba(74, 124, 89, 0.85)), 
+                        url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=1920') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 2rem;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: #D4A84B;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+        
+        .hero h1 span {
+            color: #D4A84B;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: #D4A84B;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #4A7C59;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            border: 2px solid white;
+            color: white;
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: #1A3C2A;
+        }
+        
+        /* Upcoming Events Banner */
+        .events-banner {
+            background: linear-gradient(90deg, #D4A84B, #4A7C59);
+            padding: 1.5rem 2rem;
+            text-align: center;
+        }
+        
+        .events-banner h3 {
+            color: white;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .event-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .event-date {
+            background: rgba(255,255,255,0.2);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+        }
+        
+        /* Mission Section */
+        .mission {
+            padding: 6rem 2rem;
+            background: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .mission-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #1A3C2A;
+        }
+        
+        .mission-content h2 span {
+            color: #D4A84B;
+        }
+        
+        .mission-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            margin-bottom: 1.5rem;
+        }
+        
+        .mission-card h4 {
+            color: #D4A84B;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .mission-card p {
+            color: #555;
+            font-style: italic;
+        }
+        
+        .mission-image {
+            position: relative;
+        }
+        
+        .mission-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+        
+        .stats-overlay {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 1.5rem 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            display: flex;
+            gap: 2.5rem;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: #D4A84B;
+        }
+        
+        .stat-label {
+            font-size: 0.85rem;
+            color: #666;
+        }
+        
+        /* Events Section */
+        .events {
+            padding: 6rem 2rem;
+            background: white;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: #1A3C2A;
+            margin-bottom: 1rem;
+        }
+        
+        .section-header p {
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        
+        .event-card {
+            background: #f8f9fa;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .event-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+        
+        .event-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .event-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: #D4A84B;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .event-details {
+            padding: 1.5rem;
+        }
+        
+        .event-details h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #1A3C2A;
+        }
+        
+        .event-meta {
+            display: flex;
+            gap: 1rem;
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .event-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .event-price {
+            font-weight: 700;
+            color: #D4A84B;
+            font-size: 1.1rem;
+        }
+        
+        /* Facility Rental */
+        .rental {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #1A3C2A, #1A3C2A);
+            color: white;
+        }
+        
+        .rental .section-header h2 {
+            color: white;
+        }
+        
+        .rental .section-header p {
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .rental-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        
+        .rental-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .rental-card:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-5px);
+        }
+        
+        .rental-card.featured {
+            background: linear-gradient(135deg, #D4A84B, #4A7C59);
+            border: none;
+            transform: scale(1.05);
+        }
+        
+        .rental-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .rental-card .price {
+            font-size: 3rem;
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+            margin: 1rem 0;
+        }
+        
+        .rental-card .price span {
+            font-size: 1rem;
+            font-weight: 400;
+            opacity: 0.8;
+        }
+        
+        .rental-card ul {
+            list-style: none;
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+        
+        .rental-card li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .rental-card li:last-child {
+            border: none;
+        }
+        
+        .rental-card .btn {
+            width: 100%;
+            margin-top: 1rem;
+        }
+        
+        .rental-card.featured .btn {
+            background: white;
+            color: #D4A84B;
+        }
+        
+        /* Donate Section */
+        .donate {
+            padding: 6rem 2rem;
+            background: #f8f9fa;
+            text-align: center;
+        }
+        
+        .donate-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .donate h2 {
+            font-size: 2.5rem;
+            color: #1A3C2A;
+            margin-bottom: 1rem;
+        }
+        
+        .donate p {
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        
+        .donate .btn-primary {
+            font-size: 1.1rem;
+            padding: 16px 40px;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1A3C2A;
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-brand .logo-text {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-brand p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+        
+        .footer-col h4 {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            color: #D4A84B;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-col a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-col a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: #D4A84B;
+        }
+        
+        /* WordPress Badge */
+        .wp-badge {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #21759b;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+        
+        @media (max-width: 968px) {
+            .hero h1 { font-size: 2.5rem; }
+            .mission-grid, .events-grid, .rental-grid, .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .rental-card.featured { transform: none; }
+            nav ul { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <div class="logo-icon">🐊</div>
+            <div class="logo-text">HELL HOLE <span>INC.</span></div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#rental">Facility Rental</a></li>
+                <li><a href="#donate">Donate</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#tickets" class="nav-cta">Get Tickets</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">🎉 55TH ANNIVERSARY - MAY 2-3, 2026</div>
+            <h1>Hell Hole <span>Swamp Festival</span></h1>
+            <p>Empowering youth and fostering community fellowship in the greater Jamestown area since 1971.</p>
+            <div class="hero-buttons">
+                <a href="#tickets" class="btn btn-primary">Buy Festival Tickets</a>
+                <a href="#events" class="btn btn-outline">View All Events</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Events Banner -->
+    <div class="events-banner">
+        <h3>
+            <span class="event-item">🦪 <strong>Oyster Roast</strong> <span class="event-date">Feb 21</span></span>
+            <span class="event-item">🎪 <strong>55th Festival</strong> <span class="event-date">May 2-3</span></span>
+            <span class="event-item">🎃 <strong>Munster Mash</strong> <span class="event-date">Oct</span></span>
+        </h3>
+    </div>
+
+    <!-- Mission Section -->
+    <section class="mission">
+        <div class="container">
+            <div class="mission-grid">
+                <div class="mission-content">
+                    <h2>Building <span>Community</span> Since 1971</h2>
+                    
+                    <div class="mission-card">
+                        <h4>Our Vision</h4>
+                        <p>"Empowering youth of all ages to fulfill their dreams and ambitions through unified efforts that create endless possibilities and opportunities."</p>
+                    </div>
+                    
+                    <div class="mission-card">
+                        <h4>Our Mission</h4>
+                        <p>"Our mission is to promote charitable events year-round, nurturing community fellowship and growth within the greater Jamestown area."</p>
+                    </div>
+                    
+                    <p style="color: #666; margin-top: 1.5rem;">
+                        Through our events, we strive to provide for those less fortunate in our community, fostering a spirit of compassion, unity, and support. Founded by Cecil Guerry, the festival has become a cherished tradition representing local culture.
+                    </p>
+                </div>
+                
+                <div class="mission-image">
+                    <img src="https://images.unsplash.com/photo-1529543544277-065dc250fa9e?w=600&h=500&fit=crop" alt="Community Festival">
+                    <div class="stats-overlay">
+                        <div class="stat">
+                            <div class="stat-number">55</div>
+                            <div class="stat-label">Years Strong</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">10K+</div>
+                            <div class="stat-label">Visitors/Year</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Volunteer Run</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="events" id="events">
+        <div class="container">
+            <div class="section-header">
+                <h2>Upcoming Events</h2>
+                <p>Join us for year-round events that bring our community together</p>
+            </div>
+            
+            <div class="events-grid">
+                <div class="event-card">
+                    <div class="event-image" style="background-image: url('https://images.unsplash.com/photo-1559339352-11d035aa65de?w=400')">
+                        <span class="event-badge">Coming Soon!</span>
+                    </div>
+                    <div class="event-details">
+                        <h3>12th Annual Oyster Roast</h3>
+                        <div class="event-meta">
+                            <span>📅 Feb 21, 2026</span>
+                            <span>📍 Steel Shed</span>
+                        </div>
+                        <p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;">All-you-can-eat oysters, live music, and family fun. Kids 11 & under FREE!</p>
+                        <div class="event-price">$35 online / $45 door</div>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-image" style="background-image: url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400')">
+                        <span class="event-badge">55th Anniversary!</span>
+                    </div>
+                    <div class="event-details">
+                        <h3>Hell Hole Swamp Festival</h3>
+                        <div class="event-meta">
+                            <span>📅 May 2-3, 2026</span>
+                            <span>📍 Jamestown</span>
+                        </div>
+                        <p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;">Parade at 11AM, all-day music, Gator Trot 10K, pageants, and FIREWORKS at dusk!</p>
+                        <div class="event-price">FREE Admission</div>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-image" style="background-image: url('https://images.unsplash.com/photo-1509557965875-b88c97052f0e?w=400')">
+                        <span class="event-badge">Family Fun</span>
+                    </div>
+                    <div class="event-details">
+                        <h3>Back to School Bash</h3>
+                        <div class="event-meta">
+                            <span>📅 August 2026</span>
+                            <span>📍 Steel Shed</span>
+                        </div>
+                        <p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;">Free school supplies, games, and activities for local students.</p>
+                        <div class="event-price">FREE Event</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facility Rental -->
+    <section class="rental" id="rental">
+        <div class="container">
+            <div class="section-header">
+                <h2>Rent Our Facility</h2>
+                <p>The Steel Shed is available for community events, parties, and gatherings</p>
+            </div>
+            
+            <div class="rental-grid">
+                <div class="rental-card">
+                    <h3>Setup Day</h3>
+                    <div class="price">$200<span>/day</span></div>
+                    <ul>
+                        <li>✓ Up to 6 hours access</li>
+                        <li>✓ Day before your event</li>
+                        <li>✓ Setup & decoration time</li>
+                        <li>✓ Add-on to main rental</li>
+                    </ul>
+                    <a href="#book" class="btn btn-outline">Add to Booking</a>
+                </div>
+                
+                <div class="rental-card featured">
+                    <h3>Standard Rental</h3>
+                    <div class="price">$400<span>/day</span></div>
+                    <ul>
+                        <li>✓ 12-hour rental period</li>
+                        <li>✓ 96 plastic + 75 banquet chairs</li>
+                        <li>✓ 18 rectangle + 7 round tables</li>
+                        <li>✓ Full kitchen access</li>
+                        <li>✓ Non-admission events</li>
+                    </ul>
+                    <a href="#book" class="btn btn-primary">Book Now</a>
+                </div>
+                
+                <div class="rental-card">
+                    <h3>Admission Events</h3>
+                    <div class="price">$600<span>/day</span></div>
+                    <ul>
+                        <li>✓ 12-hour rental period</li>
+                        <li>✓ All equipment included</li>
+                        <li>✓ Events charging entry fee</li>
+                        <li>✓ Security required 150+ guests</li>
+                    </ul>
+                    <a href="#book" class="btn btn-outline">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donate Section -->
+    <section class="donate" id="donate">
+        <div class="donate-content">
+            <h2>Support Our Mission</h2>
+            <p>Your donation helps us continue providing free community events and supporting local youth programs. Every dollar makes a difference in Jamestown.</p>
+            <a href="#donate-form" class="btn btn-primary">Make a Donation</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="logo-text">HELL HOLE <span style="color: #D4A84B;">INC.</span></div>
+                <p>A 501(c)(3) nonprofit organization dedicated to empowering youth and fostering community fellowship in Jamestown, South Carolina since 1971.</p>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Events</h4>
+                <ul>
+                    <li><a href="#">Swamp Festival</a></li>
+                    <li><a href="#">Oyster Roast</a></li>
+                    <li><a href="#">Back to School Bash</a></li>
+                    <li><a href="#">Munster Mash</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Facility Rental</a></li>
+                    <li><a href="#">Sponsors</a></li>
+                    <li><a href="#">Volunteer</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="#">Jamestown, SC</a></li>
+                    <li><a href="#">info@hellholeswampfest.com</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <span>© 2026 Hell Hole Inc. All rights reserved.</span>
+            <div class="social-links">
+                <a href="#">f</a>
+                <a href="#">📷</a>
+                <a href="#">✉</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WordPress Badge -->
+    <div class="wp-badge">⚡ WordPress Mockup</div>
+</body>
+</html>
